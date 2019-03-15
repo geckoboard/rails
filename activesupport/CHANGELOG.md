@@ -1,3 +1,7 @@
+*   In Zeitwerk mode engines are no longer managed by the `once` autoloader. Engines may reference application constants, and otherwise they could be referencing stale objects. Now Zeitwerk mode acts like classic mode in this regard, `autoload_paths` reload, and `autoload_once_paths` don't.
+
+    *Xavier Noria*
+
 *   Add support for supplying `locale` to `transliterate` and `parameterize`.
 
         I18n.backend.store_translations(:de, i18n: { transliterate: { rule: { "ü" => "ue" } } })
@@ -14,7 +18,7 @@
 
     *DHH*
 
-*   Renamed Array#without and Enumerable#without to Array#excluding and Enumerable#excluding, to create parity with 
+*   Renamed Array#without and Enumerable#without to Array#excluding and Enumerable#excluding, to create parity with
     Array#including and Enumerable#including. Retained the old names as aliases.
 
     *DHH*
