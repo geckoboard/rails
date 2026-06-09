@@ -25,7 +25,7 @@ module ActionDispatch
       NULL_PARAM_FILTER = ParameterFilter.new # :nodoc:
       NULL_ENV_FILTER   = ParameterFilter.new ENV_MATCH # :nodoc:
 
-      def initialize(env)
+      def initialize
         super
         @filtered_parameters = nil
         @filtered_env        = nil
