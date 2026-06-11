@@ -1,11 +1,11 @@
 require 'rack/session/abstract/id'
 
 module ActionDispatch
-  class Request < Rack::Request
+  class Request
     # Session is responsible for lazily loading the session from store.
     class Session # :nodoc:
-      ENV_SESSION_KEY         = Rack::Session::Abstract::ENV_SESSION_KEY # :nodoc:
-      ENV_SESSION_OPTIONS_KEY = Rack::Session::Abstract::ENV_SESSION_OPTIONS_KEY # :nodoc:
+      ENV_SESSION_KEY         = Rack::RACK_SESSION # :nodoc:
+      ENV_SESSION_OPTIONS_KEY = Rack::RACK_SESSION_OPTIONS # :nodoc:
 
       # Singleton object used to determine if an optional param wasn't specified
       Unspecified = Object.new

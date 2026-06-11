@@ -13,12 +13,14 @@ require 'action_dispatch/http/url'
 require 'active_support/core_ext/array/conversions'
 
 module ActionDispatch
-  class Request < Rack::Request
+  class Request
+    include Rack::Request::Helpers
     include ActionDispatch::Http::Cache::Request
     include ActionDispatch::Http::MimeNegotiation
     include ActionDispatch::Http::Parameters
     include ActionDispatch::Http::FilterParameters
     include ActionDispatch::Http::URL
+    include Rack::Request::Env
 
     autoload :Session, 'action_dispatch/request/session'
     autoload :Utils,   'action_dispatch/request/utils'
@@ -333,11 +335,6 @@ module ActionDispatch
 
       Utils.deep_munge(hash)
     end
-
-    protected
-      def parse_query(qs)
-        Utils.deep_munge(super)
-      end
 
     private
       def check_method(name)

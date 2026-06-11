@@ -166,7 +166,7 @@ module ActionDispatch
         end
       end
 
-      def initialize(env)
+      def initialize
         super
         @protocol = nil
         @port     = nil
